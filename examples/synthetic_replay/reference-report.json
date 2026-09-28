@@ -1,0 +1,52 @@
+{
+  "schema": "fast_ofm_synthetic_replay_report/v1",
+  "recorded_at": "2026-09-28",
+  "synthetic": true,
+  "contains_specimen_data": false,
+  "environment": {
+    "architecture": "linux_arm64_qemu",
+    "python": "3.13.5",
+    "libvips": "8.18.6",
+    "pyvips": "3.2.0",
+    "numpy": "2.4.6",
+    "pillow": "10.4.0",
+    "opencv": "4.13.0",
+    "openflexure_stitching": "0.3.1"
+  },
+  "viewer_validation": {
+    "application": "QuPath",
+    "version": "0.5.1",
+    "server": "BioFormatsImageServer",
+    "platform": "macos_x86_64",
+    "detected_levels": 2,
+    "detected_downsamples": [1.0, 2.0]
+  },
+  "limits": {
+    "workers": 3,
+    "ram_cache_mib": 512,
+    "correlation_mode": "full",
+    "minimum_overlap": 0.4,
+    "resize": 1.0,
+    "work_tile_pixels": 128
+  },
+  "result": {
+    "input_tiles": 4,
+    "correlated_pairs": 4,
+    "output_pixels": [768, 768],
+    "pyramid_levels": 2,
+    "output_bytes": 1859598,
+    "arm64_qemu_wall_seconds_including_container_startup": 72.76,
+    "maximum_absolute_pixel_difference_from_generated_scene": 0,
+    "mean_absolute_pixel_difference_from_generated_scene": 0.0,
+    "outer_edges_preserved": true,
+    "physical_scale_declared": false
+  },
+  "sha256": {
+    "img_0_0_0.png": "3a84dcdc6e2cc2827a122ac448f3bb993c3d49f3be1cdea8778a64a570168c81",
+    "img_0_256_0.png": "a27814f8011a1fa09ce69537be83910415d97ab67e59090478bffc3526c854b2",
+    "img_256_0_0.png": "6235acf149617b94df399dace5f5d5b479970248cf2f34d7b0a57b437b34f9bd",
+    "img_256_256_0.png": "fca264f1435761859e2c2b02bac097b4c5b3fdcb11c2870815f101496d1f914e",
+    "telemetry.json": "41fbed2aa4e731514b90d9fe1c44a4255804873c867caec7589aaf1bf5ba001d",
+    "synthetic_replay.ome.tiff": "b4fbb029def60e808aad0f8af20c898e13b52a971680e9ae076910026c0edb3f"
+  }
+}

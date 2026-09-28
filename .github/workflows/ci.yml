@@ -1,0 +1,36 @@
+name: Source validation
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  worker:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install libvips
+        run: sudo apt-get update && sudo apt-get install -y libvips-dev
+      - name: Install validation tools
+        run: >-
+          python -m pip install --upgrade pip build &&
+          python -m pip install ruff reuse==5.1.1
+      - name: Verify file-level licensing
+        run: reuse lint
+      - name: Install worker package
+        run: python -m pip install -e ".[validation]"
+      - name: Check Python source
+        run: python -m ruff check src tests
+      - name: Run tests
+        run: python -m pytest -q
+      - name: Build distributable artifacts
+        run: python -m build
+      - name: Check the installed CLI entry point
+        run: fast-ofm-stitch-openflexure --help
